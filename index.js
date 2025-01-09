@@ -103,6 +103,15 @@ app.get("/api/protected", (req, res) => {
   }
 });
 
+// Protected Route
+app.get("/", (req, res) => {
+  try {
+    res.status(200).json({ message: "App is working Fine..." });
+  } catch (error) {
+    res.status(401).json({ message: "App Crashed" });
+  }
+});
+
 // Server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
